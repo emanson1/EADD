@@ -2,45 +2,91 @@
   "name": "eadd",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@inovua/reactdatagrid-community": "^5.8.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@mui/material": "^5.11.6",
     "@react-spring/web": "^9.6.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.3.2",
+    "connected-react-router": "^6.9.3",
+    "formik": "^2.2.9",
+    "formik-material-fields": "0.0.6",
+    "formik-material-ui": "^4.0.0-alpha.2",
     "react": "^18.2.0",
+    "react-data-grid": "^7.0.0-beta.20",
+    "react-data-grid-addons": "^7.0.0-alpha.24",
     "react-dom": "^18.2.0",
     "react-native": "^0.70.6",
     "react-native-web": "^0.18.10",
-    "react-router-dom": "^6.5.0",
+    "react-redux": "^8.0.5",
+    "react-router": "^6.8.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "react-tinder-card": "^1.6.2",
     "react-tradingview-widget": "^1.3.2",
-    "web-vitals": "^2.1.4"
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^6.1.3",
+    "redux-thunk": "^2.4.2",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build-shared": "react-scripts build",
+    "build-dev": "env-cmd .env.dev npm run build-shared && @powershell xcopy build \\\\iisdev1\\wms_pmr-wwwroot\\ui\\wms_pmr /s /e /h /i /y",
+    "build-acpt": "env-cmd .env.acpt npm run build-shared && @powershell xcopy build \\\\iisacpt1\\wms_pmr-wwwroot\\ui\\wms_pmr /s /e /h /i /y",
+    "build-prod": "env-cmd .env.prod npm run build-shared && @powershell xcopy build \\\\iisprd1\\wms_pmr-wwwroot\\ui\\wms_pmr /s /e /h /i /y",
+    "test": "semistandard && react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "fix": "semistandard --fix",
+    "cy:run": "cypress run",
+    "storybook-ci": "start-storybook --ci -p 9009",
+    "ci-test": "start-server-and-test storybook-ci http://localhost:9009 cy:run",
+    "cypress:open": "cypress open"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/polyfill": "^7.1.2",
+    "@babel/preset-env": "^7.1.2",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/cli": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "cypress-cucumber-preprocessor": "^1.16.2",
+    "eslint-plugin-react": "^7.14.3",
+    "http-proxy-middleware": "^0.19.0",
+    "semistandard": "^13.0.1",
+    "redux-logger": "3.0.6"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "semistandard": {
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "ignore": [
+      "cypress",
+      "setupProxy.js"
     ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amy\\source\\repos\\EADD\\EADD.WebApi\\EADD.WebApi.csproj": {}
+    "C:\\Users\\Amy\\EADD\\EADD.WebApi\\EADD.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amy\\source\\repos\\EADD\\EADD.WebApi\\EADD.WebApi.csproj": {
+    "C:\\Users\\Amy\\EADD\\EADD.WebApi\\EADD.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amy\\source\\repos\\EADD\\EADD.WebApi\\EADD.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Amy\\EADD\\EADD.WebApi\\EADD.WebApi.csproj",
         "projectName": "EADD.WebApi",
-        "projectPath": "C:\\Users\\Amy\\source\\repos\\EADD\\EADD.WebApi\\EADD.WebApi.csproj",
+        "projectPath": "C:\\Users\\Amy\\EADD\\EADD.WebApi\\EADD.WebApi.csproj",
         "packagesPath": "C:\\Users\\Amy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amy\\source\\repos\\EADD\\EADD.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Amy\\EADD\\EADD.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amy\\AppData\\Roaming\\NuGet\\NuGet.Config",

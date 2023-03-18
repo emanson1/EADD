@@ -2,16 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createHashHistory } from 'history';
+import { ConnectedRouter } from 'connected-react-router';
+//import 'typeface-roboto';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import registerServiceWorker from './registerServiceWorker';
+import configureStore from './store/configureStore';
+//import OpeningSlider from './Pages/OpeningSlider';
+const base = document.querySelector('base');
+const baseUrl = base && base.href || '';
+const history = createHashHistory({basename: baseUrl});
+const initialState = window.initialReduxState;
+const store = configureStore(history, initialState);
+const rootElement = document.getElementById('root');
+
+const configuration = {
+  applicationName: 'BlueVilleApp - 1.2.0',
+  applicationAcronym:'BV',
+  folder:''
+};
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
+   <ConnectedRouter history={history}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  </ConnectedRouter>
+  </Provider>,
+  rootElement);
+registerServiceWorker();
