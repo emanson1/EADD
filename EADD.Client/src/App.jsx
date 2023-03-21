@@ -10,7 +10,7 @@ import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import {Switch as Toggle} from '@mui/material';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-
+// testing
 const useStyles = makeStyles((theme) => ({
   mainpage:
   {
