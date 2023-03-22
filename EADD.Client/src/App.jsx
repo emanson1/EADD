@@ -53,7 +53,8 @@ function App(props) {
     <Toggle onClick={toggleTheme}/>Toggle Theme
   
   <View >
-    <div style={{overflowX:'scroll',overflowY:'scroll'}}>
+    <div>
+    {/* <div> style={{overflowX:'scroll',overflowY:'scroll'}}> */}
     <Router>
       <Switch>
       <Route exact path='/' component ={Inspections} />

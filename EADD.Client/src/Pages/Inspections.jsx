@@ -41,25 +41,26 @@ export default function Inspections (props) {
   const classes=useStyles();
 const [theme, setTheme]=useState(props.theme);
 
-  const columns = [
-    { name: 'name', header: 'Name', minWidth: 50, defaultFlex: 2, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'date', header: 'Date', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'address', header: 'Address', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'state', header: 'State', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'zip', header: 'Zip', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'phone', header: 'Age', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'tech', header: 'Tech', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'Model', header: 'Model', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'serial', header: 'Serial', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    { name: 'notes', header: 'Notes', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
-    
+const columns = [
+  { name: 'name', header: 'Name', minWidth: 50, defaultFlex: 2, render: ({ data }) => <GridLink textVal={data.name} value={data.id}  /> },
+  { name: 'date', header: 'Date', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.date} value={data.id}  /> },
+  { name: 'address', header: 'Address', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.address} value={data.id}  /> },
+  { name: 'state', header: 'State', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.state} value={data.id}  /> },
+  { name: 'zip', header: 'Zip', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.zip} value={data.id}  /> },
+  { name: 'phone', header: 'Age', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.phone} value={data.id}  /> },
+  { name: 'tech', header: 'Tech', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.tech} value={data.id}  /> },
+  { name: 'Model', header: 'Model', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.model} value={data.id}  /> },
+  { name: 'serial', header: 'Serial', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.serial} value={data.id}  /> },
+  { name: 'notes', header: 'Notes', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink textVal={data.notes} value={data.id}  /> },
+
+  
 //    Id	 Name	 Date	 Address	 State	 Zip	 Phone	 Tech	 Model	 Serial	 Notes
 
-  ];
-  
-  const gridStyle = { minHeight: 550, width: 800 };
-  const GridLink = ({ value }) => <a style={{ color: '#9ba7b4' }} href={`/Inspection/${value}`} ><HelpIcon/></a>
-  
+];
+
+const gridStyle = { minHeight: 550, minWidth:800 };
+const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecoration:'none' }} href={`/Installation/${value}`} >{textVal}</a>
+
   const dataSource = [
 {id:"1", name:"MORRIS NITA                        ", date:"37987", address:"7727    4461 82ND AVE              ", state:"FL", zip:"33781",phone:"544-2058      ", tech:"JIM           ",model:"NCH5530VKD1  ",serial:"L991836853    ",notes:"'INSP A/C HT.NRML OP.'"},
 {id:"1", name:"CAMPBELL ROBERT                    ", date:"42736", address:"7816    12100 SEMINOLE BLVD #71    ", state:"FL", zip:"33778",phone:"581-7820      ", tech:"JACK          ",model:"HEIL ST CL   ",serial:"              ",notes:"'OILD MTR"},
