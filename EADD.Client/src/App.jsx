@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import theme from './theme';
 //import Installs from './Pages/Installs';
-import Inspections from './Pages/Inspections';
+import Inspections from './Pages/Inspections.jsx';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import {Switch as Toggle} from '@mui/material';

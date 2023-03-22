@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import {Grid, ThemeProvider} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
 import HelpIcon from '@material-ui/icons/Help';
-
+import { Box } from '@mui/system';
+import Typography from '@material-ui/core/Typography';
+import { CallMissedSharp } from '@material-ui/icons';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+const useStyles = makeStyles((theme) => ({
+  heading:
+  {
+    color:(theme.palette.type==="light")?'white':'black',
+    backgroundColor:(theme.palette.type==="light")?'blue':'light-blue',
+    textAlign:'center',
+  },
+  grid: 
+  {
+    width:'100%',
+    height:'100%',
+    border: '2px dashed blue',
+    borderRadius: '25px'
+  }}
+  ));
 
 export default function Inspections (props) {
+  const classes=useStyles();
 const [theme, setTheme]=useState(props.theme);
 
   const columns = [
@@ -115,14 +134,19 @@ const [theme, setTheme]=useState(props.theme);
 
   ]
   return(
+    <Box component="div" className={classes.grid}>
+      <Grid container spacing={2}>
+      <Grid item xs={12} ><Typography className={classes.heading} variant="h3">Inspections</Typography></Grid>
+      </Grid>
       <ReactDataGrid
       idProperty="id"
       columns={columns}
       dataSource={dataSource}
       style={gridStyle}
       defaultFilterValue={filterValue}
+      
     
-    />
+    /></Box>
      
     )
   };
