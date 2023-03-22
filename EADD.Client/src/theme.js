@@ -1,7 +1,7 @@
-import { createMuiTheme, responsiveFontSizes } 
+import { createTheme, responsiveFontSizes } 
 from '@material-ui/core/styles';
   
-const theme = responsiveFontSizes(createMuiTheme({
+const theme = responsiveFontSizes(createTheme({
   spacing: 4,
   typography: {
     fontFamily: [

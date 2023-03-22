@@ -8,5 +8,5 @@ export const API_ROOT = (() => {
 })();
 
 
-export const API_INSPECTION = `${API_ROOT}inspection/`;
-export const API_INSTALLATION = `${API_ROOT}installation/`;
+export const API_INSPECTION = `${API_ROOT}inspections/`;
+export const API_INSTALLATION = `${API_ROOT}installations/`;

@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import theme from './theme';
-import Inspection from './Pages/Inspection';
-import Installs from './Pages/Installs';
+//import Installs from './Pages/Installs';
 import Inspections from './Pages/Inspections';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const tabs = {
-  'installs': Installs,
+  //'installs': Installs,
   'inspections': Inspections,
 
 }
@@ -49,13 +50,12 @@ function App(props) {
   
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <div>
-    <BrowserRouter>
+    <Router>
       <Switch>
       <Route exact path='/' component ={Inspections} />
-     <Route path='/Inspection/:id' component={Inspection} />
-   
-    </Switch>
-    </BrowserRouter>  
+      <Route path='/Inspection/:id' component={Inspections} />
+     </Switch>
+    </Router>  
    
     <NavBar setSelectedTab={setSelectedTab}/>
     </div>

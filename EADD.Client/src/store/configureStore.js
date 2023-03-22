@@ -7,7 +7,7 @@ import createRootReducer from './reducers';
 
 export default function configureStore( history, initialState) {
 
-    //const promise=promise();
+  //  const promise=promise();
     const middleware = [
     routerMiddleware(history),
     thunk, 
