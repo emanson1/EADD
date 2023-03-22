@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   }}
   ));
 
-export default function Inspections (props) {
+export default function Installations (props) {
   const classes=useStyles();
 const [theme, setTheme]=useState(props.theme);
 
@@ -59,7 +59,7 @@ const [theme, setTheme]=useState(props.theme);
   ];
   
   const gridStyle = { minHeight: 550, minWidth: 800 };
-  const GridLink = ({ value }) => <a style={{ color: '#9ba7b4' }} href={`/Inspection/${value}`} ><HelpIcon/></a>
+  const GridLink = ({ value }) => <a style={{ color: '#9ba7b4' }} href={`/Installation/${value}`} ><HelpIcon/></a>
   
   const dataSource = [
 {id:"1", name:"MORRIS NITA                        ", date:"37987", address:"7727    4461 82ND AVE              ", state:"FL", zip:"33781",phone:"544-2058      ", tech:"JIM           ",model:"NCH5530VKD1  ",serial:"L991836853    ",notes:"'INSP A/C HT.NRML OP.'"},
@@ -150,7 +150,7 @@ const [theme, setTheme]=useState(props.theme);
   return(
     <Box component="div" className={classes.grid}>
       <Grid container spacing={2}>
-      <Grid item xs={12} ><Typography className={classes.heading} variant="h3">Inspections</Typography></Grid>
+      <Grid item xs={12} ><Typography className={classes.heading} variant="h3">Installations</Typography></Grid>
       </Grid>
       <ReactDataGrid
       idProperty="id"

@@ -200,19 +200,19 @@ border-radius: 0px 0px 10px 10px;
     padding: 5px;
     /* padding-top:5px;
     padding-bottom:15px;  */
-    font-size:12px;
-    font-family: 'Segoe Script';
+    font-size:20px;
+    /* font-family: 'Segoe Script'; */
     font-weight: none;
   }
   .linkClassPlain:hover
   {
     margin-top:2px;
-    color:#49b64a;
+    color:white;
     padding-right: 5px;
     /* padding-top:5px;
     padding-bottom:15px;  */
-    font-family: 'Segoe Script';
-    font-size:13px;
+    /* font-family: 'Segoe Script'; */
+    font-size:22px;
   }
   
   .linkClass

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Inspection = props => {
+const Installation = props => {
   
   const [insp, setInsp] = useState({});
   const [shrink, setShrink] = useState(false);
@@ -93,7 +93,7 @@ const Inspection = props => {
       {/* Here<br/><br/>{JSON.stringify(insp)} */}
     <form onSubmit={handleSubmit}>
     <Grid container spacing={1}>
-    <Grid xs={12}><Typography className={classes.heading} variant="h3">Inspection</Typography></Grid>
+    <Grid xs={12}><Typography className={classes.heading} variant="h3">Installation</Typography></Grid>
     <Grid xs={4}>
     <Box component="span" className={classes.inputClass}>Name</Box>
     <Field name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
@@ -135,6 +135,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchInspection: (id) => dispatch(fetchInspection(id)),
   });
-export default connect(mapStateToProps, mapDispatchToProps)(Inspection);
+export default connect(mapStateToProps, mapDispatchToProps)(Installation);
 
 

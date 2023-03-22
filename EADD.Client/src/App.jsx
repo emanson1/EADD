@@ -7,6 +7,9 @@ import './App.css';
 import theme from './theme';
 //import Installs from './Pages/Installs';
 import Inspections from './Pages/Inspections.jsx';
+import Installations from './Pages/Installations.jsx';
+import Inspection from './Pages/Inspection.jsx';
+import Installation from './Pages/Installation.jsx';
 import NavBar from './Pages/NavBar';
 import {View} from 'react-native';
 import {Switch as Toggle} from '@mui/material';
@@ -53,7 +56,9 @@ function App(props) {
     <Router>
       <Switch>
       <Route exact path='/' component ={Inspections} />
-      <Route path='/Inspection/:id' component={Inspections} />
+      <Route exact path='/Installations' component ={Installations} />
+      <Route path='/Inspection/:id' component={Inspection} />
+      <Route path='/Installation/:id' component={Installation} />
      </Switch>
     </Router>  
    
