@@ -47,12 +47,13 @@ function App(props) {
       
   return (
     <ThemeProvider theme={theme}>
+        
     <div className={`App ${themeStyle}`}>
       classes={JSON.stringify(classes)}
     <Toggle onClick={toggleTheme}/>Toggle Theme
   
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <div>
+  <View >
+    <div style={{overflowX:'scroll',overflowY:'scroll'}}>
     <Router>
       <Switch>
       <Route exact path='/' component ={Inspections} />

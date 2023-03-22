@@ -42,23 +42,22 @@ export default function Inspections (props) {
 const [theme, setTheme]=useState(props.theme);
 
   const columns = [
-    { name: 'id', header: '', minWidth: 5,maxWidth: 50, defaultFlex: 2, render: ({ data }) => <GridLink value={data.id}  />},
-    { name: 'name', header: 'Name', minWidth: 50, defaultFlex: 2 },
-    { name: 'date', header: 'Date', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'address', header: 'Address', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'state', header: 'State', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'zip', header: 'Zip', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'phone', header: 'Age', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'tech', header: 'Tech', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'Model', header: 'Model', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'serial', header: 'Serial', maxWidth: 1000, defaultFlex: 1 },
-    { name: 'notes', header: 'Notes', maxWidth: 1000, defaultFlex: 1 },
+    { name: 'name', header: 'Name', minWidth: 50, defaultFlex: 2, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'date', header: 'Date', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'address', header: 'Address', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'state', header: 'State', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'zip', header: 'Zip', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'phone', header: 'Age', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'tech', header: 'Tech', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'Model', header: 'Model', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'serial', header: 'Serial', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
+    { name: 'notes', header: 'Notes', maxWidth: 1000, defaultFlex: 1, render: ({ data }) => <GridLink value={data.id}  /> },
     
 //    Id	 Name	 Date	 Address	 State	 Zip	 Phone	 Tech	 Model	 Serial	 Notes
 
   ];
   
-  const gridStyle = { minHeight: 550 };
+  const gridStyle = { minHeight: 550, width: 800 };
   const GridLink = ({ value }) => <a style={{ color: '#9ba7b4' }} href={`/Inspection/${value}`} ><HelpIcon/></a>
   
   const dataSource = [

@@ -1,13 +1,13 @@
-/* #root {
+#root {
     text-align: center;
     display: flex;
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
-   
-    background: linear-gradient(#49b64a, #dae13a);
-  } */
+    overflow: scroll;
+    background: linear-gradient(#f1f3f1, #50aaf5);
+    
+  }
   /* modal styles */
 .loginClass {
 margin-bottom:10px;
