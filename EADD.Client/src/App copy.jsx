@@ -14,7 +14,7 @@ import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import { makeStyles} from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import {Switch as Toggle} from '@mui/material';
-import { hideModal } from './actions/eaddActions';
+import { hideModal } from './actions/eaddactions';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 

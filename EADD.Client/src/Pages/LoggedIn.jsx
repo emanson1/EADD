@@ -6,7 +6,7 @@ import {Grid} from '@material-ui/core';
 import Logo from '../Images/LOGO.png';
 import '../App.css';
 import { connect } from 'react-redux';
-import {showModal, hideModal} from '../actions/eaddActions';
+import {showModal, hideModal} from '../actions/eaddactions';
 
 
 

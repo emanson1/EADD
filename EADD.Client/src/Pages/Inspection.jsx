@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { TextField } from 'formik-material-ui'
 import HelpIcon from '@material-ui/icons/Help';
 import { Formik, Field } from 'formik';
-import { fetchInspection } from '../actions/eaddActions';
+import { fetchInspection } from '../actions/eaddactions';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({

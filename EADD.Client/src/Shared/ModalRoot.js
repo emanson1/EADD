@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Dialog,Grid } from '@material-ui/core';
 import {connect} from 'react-redux';
-import { hideModal } from '../actions/eaddActions';
+import { hideModal } from '../actions/eaddactions';
 import CreateNewAccountModal from '../Modals/CreateNewAccountModal';
 function rand() {
   return Math.round(Math.random() * 20) - 10;
