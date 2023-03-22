@@ -58,7 +58,7 @@ const [theme, setTheme]=useState(props.theme);
 
   ];
   
-  const gridStyle = { minHeight: 550, minWidth: 800 };
+  const gridStyle = { minHeight: 550 };
   const GridLink = ({ value }) => <a style={{ color: '#9ba7b4' }} href={`/Inspection/${value}`} ><HelpIcon/></a>
   
   const dataSource = [
