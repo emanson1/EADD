@@ -3,13 +3,19 @@ import React, { useState, useEffect } from 'react'
 import { TextField } from 'formik-material-ui'
 import HelpIcon from '@material-ui/icons/Help';
 import { Formik, Field } from 'formik';
-import { fetchInspection } from '../actions/eaddactions';
+import { fetchInspection } from '../actions/eaddActions';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles((theme) => ({
+}))
+
+
 
 const Inspection = props => {
   const [insp, setInsp] = useState({});
   const [shrink, setShrink] = useState(false);
   const [inspId,setInspId]=useState(props.match.params.id);
+  const classes=useStyles();
   useEffect(() => {
     // Update the document title using the browser API
      let _insp={id:props.match.params.id, name:"MORRIS NITA                        ", date:"37987", address:"7727    4461 82ND AVE              ", state:"FL", zip:"33781",phone:"544-2058      ", tech:"JIM           ",model:"NCH5530VKD1  ",serial:"L991836853    ",notes:"'INSP A/C HT.NRML OP.'"};

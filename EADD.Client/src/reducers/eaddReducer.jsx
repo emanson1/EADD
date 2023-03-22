@@ -1,6 +1,12 @@
 import { EADDActionTypes } from '../types/eaddTypes';
 
 const initialState = {
+		modalType: null,
+		modalProps: {
+		  open: false,
+		  instrument: {},
+		  background:{}
+		},
     itemLoading: true,
     itemLoadingError: undefined,
 	inspection: {},

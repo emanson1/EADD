@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
 import { ConnectedRouter } from 'connected-react-router';
-//import 'typeface-roboto';
+import 'typeface-roboto';
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
-//import OpeningSlider from './Pages/OpeningSlider';
+import OpeningSlider from './Pages/OpeningSlider';
 const base = document.querySelector('base');
 const baseUrl = base && base.href || '';
 const history = createHashHistory({basename: baseUrl});
@@ -19,8 +19,8 @@ const store = configureStore(history, initialState);
 const rootElement = document.getElementById('root');
 
 const configuration = {
-  applicationName: 'BlueVilleApp - 1.2.0',
-  applicationAcronym:'BV',
+  applicationName: 'EADD - 1.0.0',
+  applicationAcronym:'EADD',
   folder:''
 };
 
