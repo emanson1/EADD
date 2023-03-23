@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
     background: linear-gradient(#f1f3f1, #50aaf5);
     
   }
