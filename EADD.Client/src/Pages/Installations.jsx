@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Grid} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
 import HelpIcon from '@material-ui/icons/Help';
@@ -149,8 +149,9 @@ const [theme, setTheme]=useState(props.theme);
   ]
   return(
     <Box component="div" className={classes.grid}>
-      <Grid container spacing={2}>
-      <Grid item xs={12} ><Typography className={classes.heading} variant="h3">Installations</Typography></Grid>
+     <Grid container className={classes.heading}>
+      <Grid xs={12}><Grid container><Grid xs={2}><Button  className={classes.heading} >New</Button>
+</Grid><Grid xs={8}><Typography className={classes.heading} variant="h3">Installations</Typography></Grid><Grid xs={2}><Button className={classes.heading} >Account</Button></Grid></Grid></Grid>
       </Grid>
       <ReactDataGrid
       idProperty="id"

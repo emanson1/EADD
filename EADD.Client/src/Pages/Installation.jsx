@@ -1,4 +1,4 @@
-import {Grid} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import React, { useState, useEffect } from 'react'
 import { TextField } from 'formik-material-ui'
 import HelpIcon from '@material-ui/icons/Help';
@@ -92,8 +92,8 @@ const Installation = props => {
     <div>
       {/* Here<br/><br/>{JSON.stringify(insp)} */}
     <form onSubmit={handleSubmit}>
-    <Grid container spacing={1}>
-    <Grid xs={12}><Typography className={classes.heading} variant="h3">Installation</Typography></Grid>
+    <Grid container className={classes.heading} >
+    <Grid xs={2}><Button>Back</Button></Grid><Grid xs={8}><Typography className={classes.heading} variant="h3">Installation</Typography></Grid><Grid xs={2}><Button>Account</Button></Grid>
     <Grid xs={4}>
     <Box component="span" className={classes.inputClass}>Name</Box>
     <Field name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>

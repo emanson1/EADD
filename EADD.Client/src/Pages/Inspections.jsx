@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Grid} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
 import HelpIcon from '@material-ui/icons/Help';
@@ -59,7 +59,7 @@ const columns = [
 ];
 
 const gridStyle = { minHeight: 550, minWidth:800 };
-const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecoration:'none' }} href={`/Installation/${value}`} >{textVal}</a>
+const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecoration:'none' }} href={`/Inspection/${value}`} >{textVal}</a>
 
   const dataSource = [
 {id:"1", name:"MORRIS NITA                        ", date:"37987", address:"7727    4461 82ND AVE              ", state:"FL", zip:"33781",phone:"544-2058      ", tech:"JIM           ",model:"NCH5530VKD1  ",serial:"L991836853    ",notes:"'INSP A/C HT.NRML OP.'"},
@@ -149,8 +149,9 @@ const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecora
   ]
   return(
     <Box component="div" className={classes.grid}>
-      <Grid container spacing={2}>
-      <Grid item xs={12} ><Typography className={classes.heading} variant="h3">Inspections</Typography></Grid>
+      <Grid container className={classes.heading}>
+      <Grid xs={12}><Grid container><Grid xs={2}><Button  className={classes.heading} >New</Button>
+</Grid><Grid xs={8}><Typography className={classes.heading} variant="h3">Inspections</Typography></Grid><Grid xs={2}><Button className={classes.heading} >Account</Button></Grid></Grid></Grid>
       </Grid>
       <ReactDataGrid
       idProperty="id"

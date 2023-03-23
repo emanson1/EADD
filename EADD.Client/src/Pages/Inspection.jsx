@@ -92,8 +92,10 @@ const Inspection = props => {
     <div>
       {/* Here<br/><br/>{JSON.stringify(insp)} */}
     <form onSubmit={handleSubmit}>
-    <Grid container spacing={1}>
+    <Grid container className={classes.heading}>
     <Grid xs={12}><Typography className={classes.heading} variant="h3">Inspection</Typography></Grid>
+    </Grid>
+    <Grid container className={classes.heading}>
     <Grid xs={4}>
     <Box component="span" className={classes.inputClass}>Name</Box>
     <Field name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
@@ -117,7 +119,7 @@ const Inspection = props => {
      <Grid xs={4}>
      <Box component="span" className={classes.inputClass}>Tech</Box>
      <Field name="tech" label="tech" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-  </Grid> </Grid> 
+  </Grid></Grid>  
        </form>
         </div>
       )}
