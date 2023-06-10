@@ -148,11 +148,6 @@ const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecora
 
   ]
   return(
-    <Box component="div" className={classes.grid}>
-      <Grid container className={classes.heading}>
-      <Grid xs={12}><Grid container><Grid xs={2}><Button  className={classes.heading} >New</Button>
-</Grid><Grid xs={8}><Typography className={classes.heading} variant="h3">Inspections</Typography></Grid><Grid xs={2}><Button className={classes.heading} >Account</Button></Grid></Grid></Grid>
-      </Grid>
       <ReactDataGrid
       idProperty="id"
       columns={columns}
@@ -160,9 +155,6 @@ const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecora
       style={gridStyle}
       classes={{ headerCell: classes.headerCell, row: classes.row }}
       defaultFilterValue={filterValue}
-      
-    
-    /></Box>
-     
+    />
     )
   };

@@ -1,0 +1,7 @@
+C:\Users\Amy\EADD\EADD.Domain\bin\Debug\EADD.Domain.dll.config
+C:\Users\Amy\EADD\EADD.Domain\bin\Debug\EADD.Domain.dll
+C:\Users\Amy\EADD\EADD.Domain\bin\Debug\EADD.Domain.pdb
+C:\Users\Amy\EADD\EADD.Domain\obj\Debug\EADD.Domain.csproj.AssemblyReference.cache
+C:\Users\Amy\EADD\EADD.Domain\obj\Debug\EADD.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Amy\EADD\EADD.Domain\obj\Debug\EADD.Domain.dll
+C:\Users\Amy\EADD\EADD.Domain\obj\Debug\EADD.Domain.pdb

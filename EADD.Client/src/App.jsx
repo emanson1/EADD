@@ -1,75 +1,128 @@
 
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom';
+import { Grid, Button, Typography, Box } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList, faBars } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import theme from './theme';
-//import Installs from './Pages/Installs';
+import '@inovua/reactdatagrid-community/index.css';
 import Inspections from './Pages/Inspections.jsx';
 import Installations from './Pages/Installations.jsx';
 import Inspection from './Pages/Inspection.jsx';
 import Installation from './Pages/Installation.jsx';
 import NavBar from './Pages/NavBar';
-import {View} from 'react-native';
-import {Switch as Toggle} from '@mui/material';
+import { View } from 'react-native';
+import { Switch as Toggle } from '@mui/material';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-
+import Navigation from './Pages/Navigation.jsx';
 const useStyles = makeStyles((theme) => ({
   mainpage:
   {
-    border:(theme.palette.type==="light")?'1px solid white':'1px solid black',
+    border: (theme.palette.type === "light") ? '1px solid white' : '1px solid black',
+  },
+  headerCell: {
+    backgroundColor: '#def2ff',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  heading:
+  {
+    color: (theme.palette.type === "light") ? 'white' : 'black',
+    backgroundColor: (theme.palette.type === "light") ? 'blue' : 'light-blue',
+    textAlign: 'center',
+  },
+  grid:
+  {
+    width: '90%',
+    height: '100%',
+    justifyContent: 'left',
+    borderRadius: '25px'
   }
-}));
-
-const tabs = {
-  //'installs': Installs,
-  'inspections': Inspections,
-
 }
+));
 
 
 
 function App(props) {
-  const classes=useStyles();
-  const [selectedTab, setSelectedTab] = useState('inspections');
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const [rightOpen, setRightOpen] = useState(false);
+  const [gridType, setGridType] = useState("");
   const [themeStyle, setThemeStyle] = useState('light');
   const toggleTheme = () => {
     if (themeStyle === 'light') {
-    setThemeStyle('dark');
+      setThemeStyle('dark');
     } else {
-    setThemeStyle('light');
+      setThemeStyle('light');
     }
-    };
-    useEffect(() => {
-      document.body.className = themeStyle;
-      }, [themeStyle]);
-      
+  };
+  useEffect(() => {
+    if (window.location.href.toUpperCase().indexOf("INSTALLATIONS") > 0) {
+      setGridType("Installations");
+    }
+    if (window.location.href.toUpperCase().indexOf("LABOR") > 0) {
+      setGridType("Labor");
+    }
+    if ((window.location.href.toUpperCase().indexOf("INSTALLATIONS") < 1) && (window.location.href.toUpperCase().indexOf("LABOR") < 1)) {
+      setGridType("Inspections");
+    }
+    document.body.className = themeStyle;
+  }, [themeStyle]);
+
   return (
     <ThemeProvider theme={theme}>
-        
-    <div className={`App ${themeStyle}`}>
-      classes={JSON.stringify(classes)}
-    <Toggle onClick={toggleTheme}/>Toggle Theme
-  
-  <View >
-    <div>
-    {/* <div> style={{overflowX:'scroll',overflowY:'scroll'}}> */}
-    <Router>
-      <Switch>
-      <Route exact path='/' component ={Inspections} />
-      <Route exact path='/Installations' component ={Installations} />
-      <Route path='/Inspection/:id' component={Inspection} />
-      <Route path='/Installation/:id' component={Installation} />
-     </Switch>
-    </Router>  
-   
-    <NavBar setSelectedTab={setSelectedTab}/>
-    </div>
-       </View>
-        </div>
-        </ThemeProvider>
-    )
+      <div className={`App ${themeStyle}`}>
+        classes={JSON.stringify(classes)}
+        <Toggle onClick={toggleTheme} />Toggle Theme
+
+        <View >
+          <div>
+            <Box component="div" className={classes.grid}>
+              <Grid container className={classes.heading}>
+                <Grid xs={12}>
+                  <Grid container>
+                    <Grid xs={2}>
+                      <Button className={classes.heading} onClick={() => setOpen(!open)}>
+                        <Typography className={classes.heading} variant="h4">
+                          <FontAwesomeIcon icon={faList} />
+                        </Typography>
+                      </Button>
+                    </Grid>
+                    <Grid xs={8}>
+                      <Typography className={classes.heading} variant="h3">
+                        {gridType}
+                      </Typography>
+                    </Grid>
+                    <Grid xs={2}>
+                    <Button className={classes.heading} onClick={() => setRightOpen(!rightOpen)}>
+                        <Typography className={classes.heading} variant="h4">
+                          <FontAwesomeIcon icon={faBars} />
+                        </Typography>
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+
+              {/* <div> style={{overflowX:'scroll',overflowY:'scroll'}}> */}
+              <Router>
+                <Switch>
+                  <Route exact path='/' component={Inspections} />
+                  <Route exact path='/Installations' component={Installations} />
+                  <Route path='/Inspection/:id' component={Inspection} />
+                  <Route path='/Installation/:id' component={Installation} />
+                </Switch>
+              </Router>
+              <Navigation open={open} setOpen={setOpen} rightOpen={rightOpen} setRightOpen={setRightOpen}/>
+            </Box>
+          </div>
+        </View>
+      </div>
+    </ThemeProvider>
+  )
 }
 const mapStateToProps = (state) => ({
 });

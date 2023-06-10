@@ -1,4 +1,4 @@
-import {Grid} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import React, { useState, useEffect } from 'react'
 import { TextField } from 'formik-material-ui'
 import HelpIcon from '@material-ui/icons/Help';
@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     '&:last-child td, &:last-child th': {
       border: 0,
     },
+  },
+  itemClass: {
+    backgroundColor: 'white',
+    width: '100%'
+
   },
   heading:
   {
@@ -47,6 +52,7 @@ const Inspection = props => {
   const [insp, setInsp] = useState({});
   const [shrink, setShrink] = useState(false);
   const [inspId,setInspId]=useState(props.match.params.id);
+  const [readOnly, setReadOnly] = useState(true);
   const classes=useStyles();
   useEffect(() => {
     // Update the document title using the browser API
@@ -92,34 +98,47 @@ const Inspection = props => {
     <div>
       {/* Here<br/><br/>{JSON.stringify(insp)} */}
     <form onSubmit={handleSubmit}>
-    <Grid container className={classes.heading}>
-    <Grid xs={12}><Typography className={classes.heading} variant="h3">Inspection</Typography></Grid>
-    </Grid>
-    <Grid container className={classes.heading}>
-    <Grid xs={4}>
-    <Box component="span" className={classes.inputClass}>Name</Box>
-    <Field name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-    </Grid>
-    <Grid xs={4}>
-    <Box component="span" className={classes.inputClass}>Date</Box>
-    <Field name="date" label="date" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-     </Grid>
-     <Grid xs={4}>
-      <Box component="span" className={classes.inputClass}>Address</Box>
-     <Field name="address" label="address" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-     </Grid>
-     <Grid xs={4}>
-     <Box component="span" className={classes.inputClass}>Zip</Box>
-     <Field name="zip" label="zip" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-     </Grid>
-     <Grid xs={4}>
-     <Box component="span" className={classes.inputClass}>Address</Box>
-     <Field name="phone" label="phone" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-     </Grid>
-     <Grid xs={4}>
-     <Box component="span" className={classes.inputClass}>Tech</Box>
-     <Field name="tech" label="tech" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink }} fullWidth/>
-  </Grid></Grid>  
+    <Grid container>
+                <Grid xs={2}>
+                  <a Href="/Installations"><Button>
+                    Back
+                  </Button>
+                  </a>
+                </Grid>
+                <Grid xs={8}>
+                  <Typography variant="h5">
+                    {values.name}
+                  </Typography>
+                </Grid>
+                <Grid xs={2}>
+                  <Button onClick={() => setReadOnly(!readOnly)}>
+                    {(readOnly === true) ? 'Update' : 'View'}
+                  </Button>
+                </Grid>
+              </Grid>
+              <Grid container class={classes.itemClass}>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="date" label="date" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="address" label="address" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="zip" label="zip" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="phone" label="phone" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                <Grid xs={4}>
+                  <Field disabled={readOnly} name="tech" label="tech" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                </Grid>
+                {!readOnly && <Grid xs={4}>
+                  <Button>Save Inspection Record</Button>
+                </Grid>}
+              </Grid>
        </form>
         </div>
       )}

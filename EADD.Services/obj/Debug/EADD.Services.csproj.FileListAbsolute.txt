@@ -1,0 +1,7 @@
+C:\Users\Amy\EADD\EADD.Services\bin\Debug\EADD.Services.dll.config
+C:\Users\Amy\EADD\EADD.Services\bin\Debug\EADD.Services.dll
+C:\Users\Amy\EADD\EADD.Services\bin\Debug\EADD.Services.pdb
+C:\Users\Amy\EADD\EADD.Services\obj\Debug\EADD.Services.csproj.AssemblyReference.cache
+C:\Users\Amy\EADD\EADD.Services\obj\Debug\EADD.Services.csproj.CoreCompileInputs.cache
+C:\Users\Amy\EADD\EADD.Services\obj\Debug\EADD.Services.dll
+C:\Users\Amy\EADD\EADD.Services\obj\Debug\EADD.Services.pdb

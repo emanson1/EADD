@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {Grid, Button} from '@material-ui/core';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
-import HelpIcon from '@material-ui/icons/Help';
-import { Box } from '@mui/system';
-import Typography from '@material-ui/core/Typography';
-import { CallMissedSharp } from '@material-ui/icons';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   headerCell: {
@@ -86,7 +81,6 @@ const [theme, setTheme]=useState(props.theme);
 {id:"1", name:"HALVORSEN JOHN                     ", date:"46389", address:"8056    1610 AMBERLEA DR           ", state:"FL", zip:"34698",phone:"736-3431      ", tech:"CHRIS         ",model:"NCH5536VKA1  ",serial:"L924617447    ",notes:"'SRVCD HT PMP F/SESN.LOCATD FLTR AT A/H.CSTMR WANTS RPLCMNTS-SPAC GUARD STCK # 201.'"},
 {id:"1", name:"BONNER FRANK                       ", date:"46754", address:"8072    370 144TH AVE              ", state:"FL", zip:"33708",phone:"392-2761      ", tech:"JACK          ",model:"1992 HT PMP  ",serial:"              ",notes:"'INSP SYS.CNTCTR OK.T-STAT LVL.CAP OK.OILD MTR.COMP AMP OK.                                                                                                                                                                                                                                        CAP RUSTY.CHNG NXT INSP.'"},
 {id:"1", name:"WOLFE JERRY                        ", date:"46754", address:"8069    11300 124TH AVE # 49       ", state:"FL", zip:"      ",phone:"587-0374      ", tech:"JACK          ",model:"2000 HT PMP  ",serial:"              ",notes:"'UNT LOOKS GREAT.EVRYTHNG NRML.'"},
-{id:"1", name:"AMERICANA #201", date:"304", address:"306", state:"41641", zip:"7966    401 S GULFVIEW BLVD        ",phone:"FL", tech:"33767",model:"              ",serial:"CHRIS         ",notes:"52SEC31430KP "},
 {id:"1", name:"CONDON & MEEK/ANASTASIA MCFADEN    ", date:"46389", address:"8073    100 WAVERLY WAY #310       ", state:"FL", zip:"      ",phone:"FAX-4491964   ", tech:"DAN           ",model:"             ",serial:"              ",notes:"'INSP A/C.OILD MTRS"},
 {id:"1", name:"DELORY JIM                         ", date:"37259", address:"2437    125 REDWOOD LN TEAK W      ", state:"FL", zip:"33770",phone:"586-6615      ", tech:"JACK          ",model:"ST CL 1999   ",serial:"              ",notes:"'INSP UNT.LOOKS GREAT.NRML OP.'"},
 {id:"1", name:"HODSON RAY                         ", date:"37259", address:"8071    12100 SEMINOLE BLVD #95    ", state:"FL", zip:"33778",phone:"584-6391      ", tech:"JACK          ",model:"CARRIER 4 TN ",serial:"              ",notes:"'INSP UNT.ADD 2# R-22.INSTLD USD COND MTR NO WARR-$100.                                                                                                                                                                                                                                            $100 OFF NW UNT IS INSTLD BY 12/31/01.PER JACK & DAN.'"},
@@ -148,11 +142,6 @@ const [theme, setTheme]=useState(props.theme);
 
   ]
   return(
-    <Box component="div" className={classes.grid}>
-     <Grid container className={classes.heading}>
-      <Grid xs={12}><Grid container><Grid xs={2}><Button  className={classes.heading} >New</Button>
-</Grid><Grid xs={8}><Typography className={classes.heading} variant="h3">Installations</Typography></Grid><Grid xs={2}><Button className={classes.heading} >Account</Button></Grid></Grid></Grid>
-      </Grid>
       <ReactDataGrid
       idProperty="id"
       columns={columns}
@@ -162,7 +151,7 @@ const [theme, setTheme]=useState(props.theme);
       defaultFilterValue={filterValue}
       
     
-    /></Box>
+    />
      
     )
   };
