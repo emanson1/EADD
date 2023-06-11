@@ -54,7 +54,7 @@ const [theme, setTheme]=useState(props.theme);
   ];
   
   const gridStyle = { minHeight: 550, minWidth:800 };
-  const GridLink = ({ textVal, value }) => <a style={{ color: 'black', textDecoration:'none' }} href={`/Installation/${value}`} >{textVal}</a>
+  const GridLink = ({ textVal, value }) => <a style={{ color: 'black', textDecoration:'none' }} href={`/installation/${value}`} >{textVal}</a>
   
   const dataSource = [
 {id:"1", name:"MORRIS NITA                        ", date:"37987", address:"7727    4461 82ND AVE              ", state:"FL", zip:"33781",phone:"544-2058      ", tech:"JIM           ",model:"NCH5530VKD1  ",serial:"L991836853    ",notes:"'INSP A/C HT.NRML OP.'"},

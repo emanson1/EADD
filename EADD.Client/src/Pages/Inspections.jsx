@@ -155,6 +155,9 @@ const GridLink = ({ textVal, value }) => <a style={{ color: 'black',  textDecora
       style={gridStyle}
       classes={{ headerCell: classes.headerCell, row: classes.row }}
       defaultFilterValue={filterValue}
+      
+    
     />
+     
     )
   };

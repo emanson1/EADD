@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Button, Typography, Box } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faList, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   grid:
   {
-    width: '90%',
+    width: '100%',
     height: '100%',
     justifyContent: 'left',
     borderRadius: '25px'
@@ -51,6 +51,7 @@ function App(props) {
   const [open, setOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
   const [gridType, setGridType] = useState("");
+  const [locationPath, setLocationPath] = useState("");
   const [themeStyle, setThemeStyle] = useState('light');
   const toggleTheme = () => {
     if (themeStyle === 'light') {
@@ -60,14 +61,17 @@ function App(props) {
     }
   };
   useEffect(() => {
-    if (window.location.href.toUpperCase().indexOf("INSTALLATIONS") > 0) {
+    if (window.location.href.toUpperCase().indexOf("INSTALLATION") > 0) {
       setGridType("Installations");
+      setLocationPath("/installation/-1")
     }
     if (window.location.href.toUpperCase().indexOf("LABOR") > 0) {
       setGridType("Labor");
+      setLocationPath("/LaborRecord/-1");
     }
-    if ((window.location.href.toUpperCase().indexOf("INSTALLATIONS") < 1) && (window.location.href.toUpperCase().indexOf("LABOR") < 1)) {
+    if ((window.location.href.toUpperCase().indexOf("INSTALLATION") < 1) && (window.location.href.toUpperCase().indexOf("LABOR") < 1)) {
       setGridType("Inspections");
+      setLocationPath("/Inspection/-1");
     }
     document.body.className = themeStyle;
   }, [themeStyle]);
@@ -75,7 +79,6 @@ function App(props) {
   return (
     <ThemeProvider theme={theme}>
       <div className={`App ${themeStyle}`}>
-        classes={JSON.stringify(classes)}
         <Toggle onClick={toggleTheme} />Toggle Theme
 
         <View >
@@ -97,11 +100,11 @@ function App(props) {
                       </Typography>
                     </Grid>
                     <Grid xs={2}>
-                    <Button className={classes.heading} onClick={() => setRightOpen(!rightOpen)}>
+                      <a Href={locationPath}><Button className={classes.heading}>
                         <Typography className={classes.heading} variant="h4">
-                          <FontAwesomeIcon icon={faBars} />
+                          <FontAwesomeIcon icon={faPlus} />
                         </Typography>
-                      </Button>
+                      </Button></a>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -111,12 +114,12 @@ function App(props) {
               <Router>
                 <Switch>
                   <Route exact path='/' component={Inspections} />
-                  <Route exact path='/Installations' component={Installations} />
-                  <Route path='/Inspection/:id' component={Inspection} />
-                  <Route path='/Installation/:id' component={Installation} />
+                  <Route exact path='/installations' component={Installations} />
+                  <Route path='/inspection/:id' component={Inspection} />
+                  <Route path='/installation/:id' component={Installation} />
                 </Switch>
               </Router>
-              <Navigation open={open} setOpen={setOpen} rightOpen={rightOpen} setRightOpen={setRightOpen}/>
+              <Navigation open={open} setOpen={setOpen} rightOpen={rightOpen} setRightOpen={setRightOpen} />
             </Box>
           </div>
         </View>

@@ -50,15 +50,46 @@ const useStyles = makeStyles((theme) => ({
 
 const Installation = props => {
 
-  const [insp, setInsp] = useState({});
+  const [installation, setInstallation] = useState({});
   const [shrink, setShrink] = useState(false);
-  const [inspId, setInspId] = useState(props.match.params.id);
+  const [instId, setInstId] = useState(props.match.params.id);
   const [readOnly, setReadOnly] = useState(true);
   const classes = useStyles();
+  const installationNew =
+  {
+    id: -1,
+    name: '',
+    date: '',
+    address: '',
+    state: '',
+    zip: '',
+    phone: '',
+    tech: '',
+    model: '',
+    serial: '',
+    notes: ''
+  };
   useEffect(() => {
     // Update the document title using the browser API
-    let _insp = { id: props.match.params.id, name: "MORRIS NITA                        ", date: "37987", address: "7727    4461 82ND AVE              ", state: "FL", zip: "33781", phone: "544-2058      ", tech: "JIM           ", model: "NCH5530VKD1  ", serial: "L991836853    ", notes: "'INSP A/C HT.NRML OP.'" };
-    setInsp(_insp);
+    if (props.match.params.id !== '-1') {
+      setInstallation({
+        id: props.match.params.id,
+        name: "MORRIS NITA                        ",
+        date: "37987",
+        address: "7727    4461 82ND AVE              ",
+        state: "FL",
+        zip: "33781",
+        phone: "544-2058      ",
+        tech: "JIM           ",
+        model: "NCH5530VKD1  ",
+        serial: "L991836853    ",
+        notes: "INSP A/C HT.NRML OP."
+      });
+    }
+    else {
+      setInstallation(installationNew);
+      setReadOnly(false);
+    }
     setShrink(true);
   }, []);
   return (
@@ -66,7 +97,7 @@ const Installation = props => {
       <Formik
         enableReinitialize
         //initialValues={insp}}
-        initialValues={insp}
+        initialValues={installation}
         validate={values => {
           const errors = {};
           if (!values.email) {
