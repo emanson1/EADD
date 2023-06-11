@@ -67,11 +67,11 @@ function App(props) {
     }
     if (window.location.href.toUpperCase().indexOf("LABOR") > 0) {
       setGridType("Labor");
-      setLocationPath("/LaborRecord/-1");
+      setLocationPath("/laborrecord/-1");
     }
     if ((window.location.href.toUpperCase().indexOf("INSTALLATION") < 1) && (window.location.href.toUpperCase().indexOf("LABOR") < 1)) {
       setGridType("Inspections");
-      setLocationPath("/Inspection/-1");
+      setLocationPath("/inspection/-1");
     }
     document.body.className = themeStyle;
   }, [themeStyle]);
