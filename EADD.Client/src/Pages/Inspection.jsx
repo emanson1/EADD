@@ -8,6 +8,9 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@mui/system';
 import Typography from '@material-ui/core/Typography';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import DatePickerField from '../Shared/DatePicker';
+import "react-datepicker/dist/react-datepicker.css";
 const useStyles = makeStyles((theme) => ({
   headerCell: {
     backgroundColor: '#def2ff',
@@ -74,7 +77,7 @@ const Inspection = props => {
     setInspection({
       id: props.match.params.id,
       name: "MORRIS NITA                        ",
-      date: "37987",
+      date: new Date("12/1/2023 00:00:01"),
       address: "7727    4461 82ND AVE              ",
       state: "FL",
       zip: "33781",
@@ -92,7 +95,7 @@ const Inspection = props => {
   setShrink(true);
 }, []);
 return (
-  <Box component="div" className={classes.grid}>
+  inspection.date!==undefined && <Box component="div" className={classes.grid}>
     <Formik
       enableReinitialize
       initialValues={inspection}
@@ -123,6 +126,7 @@ return (
         handleSubmit,
         isSubmitting,
         enableReinitialize,
+        setFieldValue
         /* and other goodies */
       }) => (
         <div>
@@ -151,7 +155,7 @@ return (
                 <Field disabled={readOnly} name="name" label="name" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
               </Grid>
               <Grid xs={4}>
-                <Field disabled={readOnly} name="date" label="date" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />
+                <Field component={MobileDatePicker}  slotProps={{ textField: { size: 'small' } }} onChange={setFieldValue} disabled={readOnly} margin="dense" variant="outlined" name="date" label="date" fullWidth InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} />
               </Grid>
               <Grid xs={4}>
                 <Field disabled={readOnly} name="address" label="address" component={TextField} margin="dense" variant="outlined" InputLabelProps={{ shrink: shrink, style: { color: 'black' }, }} fullWidth />

@@ -17,6 +17,9 @@ import { View } from 'react-native';
 import { Switch as Toggle } from '@mui/material';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Navigation from './Pages/Navigation.jsx';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
 const useStyles = makeStyles((theme) => ({
   mainpage:
   {
@@ -78,6 +81,8 @@ function App(props) {
 
   return (
     <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+
       <div className={`App ${themeStyle}`}>
         <Toggle onClick={toggleTheme} />Toggle Theme
 
@@ -124,6 +129,7 @@ function App(props) {
           </div>
         </View>
       </div>
+</LocalizationProvider>
     </ThemeProvider>
   )
 }
